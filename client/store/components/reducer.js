@@ -1,21 +1,22 @@
 import * as actions from './actions';
 
 const initialState = {
-  currentlyEdited: null,
-  items: [],
+  todos: ['clean car'],
 };
 
 const taskReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TASK:
+    case actions.ADD_TASK:
       return {}
-    case UPDATE_TASK:
+    case actions.UPDATE_TASK:
       return {};
-    case REMOVE_TASK:
+    case actions.REMOVE_TASK:
       return {}
-    case SET_EDITED_TASK:
+    case actions.SET_EDITED_TASK:
       return {}
     default:
       return state;
   }
 };
+
+export default taskReducer;
