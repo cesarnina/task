@@ -30,7 +30,7 @@ export class Todos extends Component {
 };
 
 const mapStateToProps = (state) => ({
-  todos: state.todos.todos
+  todos: state.tasks.todos
 });
 
 const mapDispatchToProps = (dispatch) => ({

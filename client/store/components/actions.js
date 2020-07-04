@@ -1,28 +1,27 @@
 // ACTION TYPES / ACTION CREATORS
 
-export const ADD_TASK = 'ADD_TASK';
-export const addTask = (id, layout) => ({
-  type: ADD_TASK,
+export const GET_TODO = 'GET_TODO';
+export const getTodo = (todo) => ({
+  type: GET_TODO,
+  todo,
+});
+
+export const ADD_TODO = 'ADD_TODO';
+export const addTodo = (todo) => ({
+  type: ADD_TODO,
+  todo,
+});
+
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const updateTodo = (id, todo) => ({
+  type: UPDATE_TODO,
   id,
-  layout,
+  todo,
 });
 
-export const UPDATE_TASK = 'UPDATE_TASK';
-export const updateTask = (id, data) => ({
-  type: UPDATE_TASK,
-  id,
-  data,
-});
-
-export const SET_EDITED_TASK = 'SET_EDITED_TASK';
-export const setEditedTask = component => ({
-  type: SET_EDITED_TASK,
-  component,
-});
-
-export const REMOVE_TASK = 'REMOVE_TASK';
-export const removeTask = id => ({
-  type: REMOVE_TASK,
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const removeTodo = (id) => ({
+  type: REMOVE_TODO,
   id,
 });
 
