@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import TodoForm from './TodoForm';
-import { addTodo } from '../store/components/actions';
-import { connect } from 'react-redux';
 
-export class CreateTodo extends Component {
+export default class CreateTodo extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,6 +22,7 @@ export class CreateTodo extends Component {
     event.preventDefault()
     const newTodo = {assignee: this.state.assignee, taskName: this.state.taskName}
     this.props.addTodo(newTodo)
+    this.setState({count: this.state.count++})
   };
 
   render () {
@@ -34,13 +33,3 @@ export class CreateTodo extends Component {
     )
   };
 };
-
-const mapStateToProps = (state) => ({
-  todos: state.tasks.todos
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  addTodo: (newTodo) => {dispatch(addTodo(newTodo))}
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTodo);

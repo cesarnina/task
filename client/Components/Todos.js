@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 import CreateTodo from './CreateTodo';
-import  { removeTodo } from '../store/components/actions';
+import  { addTodo, removeTodo, fetchTodos } from '../store/components/actions';
 
 export class Todos extends Component {
   constructor () {
     super()
-    this.state = {}
   };
+
+  componentDidMount() {
+    this.props.fetchTodos()
+  }
 
   render () {
     console.log('this.props.todos: ', this.props.todos)
     return (
       <div id='todos'>
-        <CreateTodo />
+        <CreateTodo todos={this.props.todos} addTodo={this.props.addTodo}/>
         {
           this.props.todos.map((todo, index) => {
             return (<Todo 
@@ -34,6 +37,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchTodos: () => {dispatch(fetchTodos())},
+  addTodo: (newTodo) => {dispatch(addTodo(newTodo))},
   removeTodo: (todoId) => {dispatch(removeTodo(todoId))}
 });
 

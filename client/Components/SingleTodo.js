@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 import UpdateTodo from './UpdateTodo';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import  { removeTodo } from '../store/components/actions';
 
-export default class SingleTodo extends Component {
+export class SingleTodo extends Component {
   constructor () {
     super()
-    this.state = {
-      todo: {}
-    }
+    this.state = {}
   };
 
-  async componentDidMount () {
-    const todoId = this.props.match.params.todoId
-    const res = await axios.get(`/api/todos/${todoId}`)
-    this.setState({todo: res.data})
+  componentDidMount() {
+    const todoId = this.props.match.params.campusId
+    this.props.singleTodo(todoId)
   };
 
   render () {
@@ -23,10 +21,20 @@ export default class SingleTodo extends Component {
 
     return (
       <div id='single-todo'>
-        <Todo todo={todo} />
-        <UpdateTodo Todo={this.state.todo}/>
-        <Link to='/'>Back</Link>
+        <Todo todo={singleTodo} removeTodo={this.props.removeTodo}/>
+        <UpdateTodo Todo={this.props.singleTodo}/>
+        {/* <Link to='/'>Back</Link> */}
       </div>
     )
   };
 };
+
+const mapStateToProps = (state) => ({
+  singleTodo: state.tasks.singleTodo
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  removeTodo: (todoId) => {dispatch(removeTodo(todoId))}
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleTodo);

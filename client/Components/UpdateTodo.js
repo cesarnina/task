@@ -18,18 +18,11 @@ export default class UpdateTodo extends Component {
     })
   };
 
-  async handleSubmit(event) {
-    event.preventDefault()
-    const res = await axios.put(`/api/todos/${todoId}`) 
-    // {name:this.state.name, 
-    //  taskName: this.state.task} 
-      
-  };
 
   render () {
-    console.log('update props: ', this.props)
+    // console.log('update props: ', this.props)
     return (
-      <TodoForm state={this.state} />
+      <TodoForm state={this.props.singleTodo} />
     )
   };
 };
