@@ -6,6 +6,7 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 });
 
 module.exports = {
+  mode: 'development',
   entry: __dirname + '/client/index.js',
   module: {
     rules: [
