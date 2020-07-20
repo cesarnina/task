@@ -2,6 +2,7 @@ import * as actions from './actions';
 
 const initialState = {
   todos: [{id: 500, assignee: 'Mario', taskName: 'Collect coins'}],
+  singleTodo: {},
 };
 
 const taskReducer = (state = initialState, action) => {
