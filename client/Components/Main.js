@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Todos from './Todos'
-import SingleTodo from './SingleTodo'
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Todos from './Todos';
+import SingleTodo from './SingleTodo';
 
 export default class Main extends Component {
   render () {
@@ -16,5 +16,5 @@ export default class Main extends Component {
         </Router>
       </div>
     )
-  }
-}
+  };
+};

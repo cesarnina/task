@@ -49,16 +49,16 @@ export const postTodo = (newTodo) => (dispatch) => {
   // await axios.post('/api/todos', newtodo)
   // const { data } = await axios.get('/api/todos')
   // dispatch(getTodo(data))
-}
+};
 
 export const replaceTodo = (campusId, newCampus) => (dispatch) => {
   // await axios.put(`/api/campuses/${campusId}/edit`, newCampus)
   // const { data } = await axios.get('/api/campuses')
   // dispatch(setCampuses(data))
-}
+};
 
 export const removeCampus = (campusId) => (dispatch) => {
   // await axios.delete(`/api/campuses/${campusId}`)
   // const { data } = await axios.get('/api/campuses')
   // dispatch(setCampuses(data))
-}
+};

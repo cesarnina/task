@@ -11,10 +11,10 @@ export class Todos extends Component {
 
   componentDidMount() {
     this.props.fetchTodos()
-  }
+  };
 
   render () {
-    console.log('this.props.todos: ', this.props.todos)
+    // console.log('this.props.todos: ', this.props.todos)
     return (
       <div id='todos'>
         <CreateTodo todos={this.props.todos} addTodo={this.props.addTodo}/>

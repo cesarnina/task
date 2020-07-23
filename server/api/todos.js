@@ -1,5 +1,5 @@
-const router = require('express').Router()
-const { Todo } = require('../db')
+const router = require('express').Router();
+const { Todo } = require('../db');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
 
 router.get('/:todoId', async (req, res, next) => {
   try {
@@ -18,7 +18,7 @@ router.get('/:todoId', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
 
 router.post('/', async (req, res, next) => {
   try {
@@ -28,7 +28,7 @@ router.post('/', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
 
 router.put('/:todoId', async (req, res, next) => {
   try {
@@ -40,7 +40,7 @@ router.put('/:todoId', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
 
 router.delete('/:todoId', async (req, res, next) => {
   try {
@@ -50,6 +50,6 @@ router.delete('/:todoId', async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-})
+});
 
-module.exports = router
+module.exports = router;

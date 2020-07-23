@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Main from './Components/Main'
-import { Provider } from "react-redux"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from './Components/Main';
+import { Provider } from "react-redux";
 import store from './store/rootStore';
 
 ReactDOM.render(
@@ -9,5 +9,5 @@ ReactDOM.render(
     <Main />
   </Provider>,
   document.getElementById('app')
-)
+);
 

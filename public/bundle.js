@@ -892,6 +892,7 @@ if (process.browser) {
   })]);
 }
 
+;
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_2__["createStore"])(_rootReducer__WEBPACK_IMPORTED_MODULE_1__["default"], // 👇 This uses the Redux DevTools extension, assuming you have it installed in your browser.
 // 👇 See: https://github.com/zalmoxisus/redux-devtools-extension
 Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_0__["composeWithDevTools"])(redux__WEBPACK_IMPORTED_MODULE_2__["applyMiddleware"].apply(void 0, _toConsumableArray(middleware)))));
