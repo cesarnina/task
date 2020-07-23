@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const db = require('./db')
+const Sequelize = require('sequelize');
+const db = require('./db');
 
 const Todo = db.define('todos', {
   taskName: {
@@ -16,6 +16,6 @@ const Todo = db.define('todos', {
       notEmpty: true
     },
   }
-})
+});
 
-module.exports = Todo
+module.exports = Todo;
