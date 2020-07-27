@@ -2,11 +2,11 @@
   "name": "todos",
   "version": "1.0.0",
   "description": "A to-do app",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "npm run build-watch & npm run start-server",
-    "build-watch": "webpack --watch",
-    "start-server": "webpack-dev-server --open --hot"
+    "build-watch": "webpack --w",
+    "start-server": "nodemon --watch server -e js,html,css server/main.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -22,7 +22,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",

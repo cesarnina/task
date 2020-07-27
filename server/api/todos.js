@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Todo } = require('../db');
+const { Todo } = require('../database/db');
 
 router.get('/', async (req, res, next) => {
   try {
