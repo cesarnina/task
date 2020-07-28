@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build-watch & npm run start-server",
     "build-watch": "webpack --w",
-    "start-server": "nodemon --watch server -e js,html,css server/main.js"
+    "start-server": "nodemon --watch server -e js,html,css server/main.js",
+    "seed": "node seed.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

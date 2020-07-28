@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const db = require('./db');
+const db = require('../database');
 
-const Todo = db.define('todos', {
+const Todo = db.define('todo', {
   taskName: {
     type: Sequelize.STRING,
     allowNull: false,

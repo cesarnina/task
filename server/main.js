@@ -1,6 +1,6 @@
 const PORT = process.env.PORT || 5000
 const app = require('./app')
-const { db } = require('./database')
+const db = require('./db')
 const sequelize = require('sequelize')
 
 app.listen(PORT, console.log(`This app is running on PORT ${PORT}`))
