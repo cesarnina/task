@@ -1,44 +1,21 @@
 const PORT = process.env.PORT || 5000
 const app = require('./app')
-const db = require('./db')
-const sequelize = require('sequelize')
+const {db} = require('./db')
 
-app.listen(PORT, console.log(`This app is running on PORT ${PORT}`))
+const start = async () => { 
+  try {
+    await db.sync()
+    app.listen(PORT, () => console.log("\x1b[36m%s\x1b[0m",`
+  
+          Listening on port ${PORT}
 
-// db.Sequelize.sync()
-// db.sync()
-//   .then(() => {
-//     app.listen(PORT, () => console.log(`
+          http://localhost:${PORT}/
+  
+    `))
+  } catch (error) {
+     console.error(error)
+  }
+};
 
-//         Listening on port ${PORT}
+start()
 
-//         http://localhost:${PORT}/
-
-//     `))
-//   })
-
-
-
-// const { Sequelize, Model, DataTypes } = require('sequelize');
-// const sequelize = new Sequelize('sqlite::memory:');
-
-// class User extends Model {}
-// User.init({
-//   username: DataTypes.STRING,
-//   birthday: DataTypes.DATE
-// }, { sequelize, modelName: 'user' });
-
-// (async () => {
-//   await sequelize.sync();
-//   const jane = await User.create({
-//     username: 'janedoe',
-//     birthday: new Date(1980, 6, 20)
-//   });
-//   const john = await User.create({
-//     username: 'johndoe',
-//     birthday: new Date(1975, 6, 10)
-//   });
-
-//   console.log(jane.toJSON());
-//   console.log(john.toJSON());
-// })();
