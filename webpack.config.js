@@ -1,13 +1,8 @@
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: __dirname + '/client/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
 
 module.exports = {
   mode: 'development',
-  entry: __dirname + '/client/index.js',
+  devtool: 'source-map',
+  entry: ['@babel/polyfill', './client/index.js'],
   module: {
     rules: [
       {
@@ -23,6 +18,4 @@ module.exports = {
     filename: 'bundle.js',
     path: __dirname + '/public'
   },
-  plugins: [HTMLWebpackPluginConfig],
-  devtool: 'source-map',
 };
