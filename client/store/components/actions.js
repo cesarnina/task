@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // ACTION TYPES
 // ACTION CREATORS
 
@@ -7,10 +9,10 @@ export const getTodo = (todo) => ({
   todo,
 });
 
-export const  SINGLE_TODO = 'SINGLE_TODO';
-export const singleTodo = (todoId) => ({
-  type: SINGLE_TODO,
-  todoId,
+export const  ONE_TODO = 'ONE_TODO';
+export const oneTodo = (todo) => ({
+  type: ONE_TODO,
+  todo,
 });
 
 export const ADD_TODO = 'ADD_TODO';
@@ -35,30 +37,30 @@ export const removeTodo = (id) => ({
 
 // THUNK CREATORS
 
-export const fetchTodos = () => (dispatch) => {
-  // const { data } = await axios.get('/api/todos')
-  // dispatch(getTodo(data))
+export const fetchTodos = () => async (dispatch) => {
+  const { data } = await axios.get('/api/todos')
+  dispatch(addTodo(data))
 };
 
-export const fetchSingleTodo = (todoId) => (dispatch) => {
-  // const { data } = await axios.get(`/api/todos/${todoId}`)
-  // dispatch(singleTodo(data))
+export const fetchSingleTodo = (todoId) => async (dispatch) => {
+  const { data } = await axios.get(`/api/todos/${todoId}`)
+  dispatch(oneTodo(data))
 };
 
-export const postTodo = (newTodo) => (dispatch) => {
-  // await axios.post('/api/todos', newtodo)
-  // const { data } = await axios.get('/api/todos')
-  // dispatch(getTodo(data))
+export const postTodo = (newTodo) => async (dispatch) => {
+  await axios.post('/api/todos', newTodo)
+  const { data } = await axios.get('/api/todos')
+  dispatch(getTodo(data))
 };
 
-export const replaceTodo = (campusId, newCampus) => (dispatch) => {
-  // await axios.put(`/api/campuses/${campusId}/edit`, newCampus)
-  // const { data } = await axios.get('/api/campuses')
-  // dispatch(setCampuses(data))
+export const editTodo = (todoId, newTodo) => async (dispatch) => {
+  await axios.put(`/api/todos/${todoId}`, newTodo)
+  const { data } = await axios.get('/api/todos')
+  dispatch(getTodo(data))
 };
 
-export const removeCampus = (campusId) => (dispatch) => {
-  // await axios.delete(`/api/campuses/${campusId}`)
-  // const { data } = await axios.get('/api/campuses')
-  // dispatch(setCampuses(data))
+export const deleteTodo = (todoId) => async (dispatch) => {
+  await axios.delete(`/api/todos/${todoId}`)
+  const { data } = await axios.get('/api/todos')
+  dispatch(getTodo(data))
 };
