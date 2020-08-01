@@ -21,13 +21,16 @@ export default class CreateTodo extends Component {
   handleSubmit() {
     event.preventDefault()
     const newTodo = {assignee: this.state.assignee, taskName: this.state.taskName}
-    this.props.addTodo(newTodo)
-    this.setState({count: this.state.count++})
+    this.props.postTodo(newTodo)
+    this.setState({
+      assignee: '',
+      taskName: ''
+    })
   };
 
   render () {
     return (
-      <TodoForm todos={this.props.todos}
+      <TodoForm state={this.state}
          handleChange={this.handleChange}
          handleSubmit={this.handleSubmit} />
     )

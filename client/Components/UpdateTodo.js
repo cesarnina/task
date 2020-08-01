@@ -18,11 +18,19 @@ export default class UpdateTodo extends Component {
     })
   };
 
+  handleSubmit() {
+    event.preventDefault()
+    const newTodo = {assignee: this.state.assignee, taskName: this.state.taskName}
+    this.props.editTodo(this.props.singleTodo.id, newTodo)
+  };
+
 
   render () {
-    // console.log('update props: ', this.props)
+    console.log('update props: ', this.props)
     return (
-      <TodoForm state={this.props.singleTodo} />
+      <TodoForm state={this.state}
+         handleChange={this.handleChange}
+         handleSubmit={this.handleSubmit} />
     )
   };
 };

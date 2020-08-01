@@ -3,7 +3,7 @@ import Todo from './Todo';
 import UpdateTodo from './UpdateTodo';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import  { removeTodo } from '../store/components/actions';
+import  { deleteTodo, fetchSingleTodo, editTodo } from '../store/components/actions';
 
 export class SingleTodo extends Component {
   constructor () {
@@ -12,18 +12,18 @@ export class SingleTodo extends Component {
   };
 
   componentDidMount() {
-    const todoId = this.props.match.params.campusId
-    this.props.singleTodo(todoId)
+    const todoId = this.props.match.params.todoId
+    this.props.fetchSingleTodo(todoId)
   };
 
   render () {
+    // console.log('SingleTodo props: ', this.props)
     const todo = this.state.todo
-
     return (
       <div id='single-todo'>
-        <Todo todo={singleTodo} removeTodo={this.props.removeTodo}/>
-        <UpdateTodo Todo={this.props.singleTodo}/>
-        {/* <Link to='/'>Back</Link> */}
+        <Todo todo={this.props.singleTodo} deleteTodo={this.props.deleteTodo} />
+        <UpdateTodo singleTodo={this.props.singleTodo} editTodo={this.props.editTodo} />
+        <Link to='/todos'>Back</Link>
       </div>
     )
   };
@@ -34,7 +34,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  removeTodo: (todoId) => {dispatch(removeTodo(todoId))}
+  deleteTodo: (todoId) => {dispatch(deleteTodo(todoId))},
+  editTodo: (todoId, newTodo) => {dispatch(editTodo(todoId, newTodo))},
+  fetchSingleTodo: (todoId) => {dispatch(fetchSingleTodo(todoId))}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleTodo);

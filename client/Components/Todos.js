@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 import CreateTodo from './CreateTodo';
-import  { addTodo, removeTodo, fetchTodos } from '../store/components/actions';
+import  { postTodo, deleteTodo, fetchTodos } from '../store/components/actions';
 
 export class Todos extends Component {
   constructor () {
@@ -17,14 +17,13 @@ export class Todos extends Component {
     // console.log('this.props.todos: ', this.props.todos)
     return (
       <div id='todos'>
-        <CreateTodo todos={this.props.todos} addTodo={this.props.addTodo}/>
+        <CreateTodo postTodo={this.props.postTodo}/>
         {
-          this.props.todos.map((todo, index) => {
+          this.props.todos.map((todo) => {
             return (<Todo 
-              // key={todo.id} 
-              key={index}
+              key={todo.id} 
               todo={todo} 
-              removeTodo={this.props.removeTodo} />
+              deleteTodo={this.props.deleteTodo} />
           )})
         }
       </div>
@@ -39,7 +38,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchTodos: () => {dispatch(fetchTodos())},
   addTodo: (newTodo) => {dispatch(addTodo(newTodo))},
-  removeTodo: (todoId) => {dispatch(removeTodo(todoId))}
+  deleteTodo: (todoId) => {dispatch(deleteTodo(todoId))},
+  postTodo: (newTodo) => {dispatch(postTodo(newTodo))}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todos);
