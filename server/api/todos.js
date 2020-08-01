@@ -34,7 +34,7 @@ router.put('/:todoId', async (req, res, next) => {
   try {
     const id = req.params.todoId
     const { assignee, taskName } = req.body
-    const todo = await Todo.findByPK(id)
+    const todo = await Todo.findByPk(id)
     const newTodo = await todo.update({ assignee, taskName })
     res.json(newTodo)
   } catch (error) {
