@@ -6,6 +6,16 @@ const seed = async () => {
     await db.sync({force: true})
 
     await Todo.create({
+      taskName: 'Collect coins',
+      assignee: 'Mario'
+    })
+
+    await Todo.create({
+      taskName: 'Save the princess',
+      assignee: 'Mario'
+    })
+
+    await Todo.create({
       taskName: 'Buy dog food',
       assignee: 'Cody'
     })
