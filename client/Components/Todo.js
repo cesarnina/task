@@ -16,7 +16,7 @@ const Todo = (props) => {
           <p>Assigned to: {todo.assignee}</p>
         </div>
         <div className='column'>
-          <Link to={'/todos'}>
+          <Link to={'/'}>
             <button className='remove' onClick={() =>{props.deleteTodo(todo.id)}}>Remove</button>
           </Link>   
         </div>

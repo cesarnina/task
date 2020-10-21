@@ -10,7 +10,7 @@ export default class Main extends Component {
         <h1>To do's!!!</h1>
         <Router>
           <Switch>
-            <Route exact path='/todos' component={Todos} />
+            <Route exact path='/' component={Todos} />
             <Route path='/todos/:todoId' component={SingleTodo} />
           </Switch>
         </Router>
