@@ -18,7 +18,7 @@ export default class UpdateTodo extends Component {
     })
   };
 
-  handleSubmit() {
+  handleSubmit(event) {
     event.preventDefault()
     const newTodo = {assignee: this.state.assignee, taskName: this.state.taskName}
     this.props.editTodo(this.props.singleTodo.id, newTodo)
