@@ -22,7 +22,9 @@ export class SingleTodo extends Component {
     return (
       <div id='single-todo'>
         <Todo todo={this.props.singleTodo} deleteTodo={this.props.deleteTodo} />
-        <UpdateTodo singleTodo={this.props.singleTodo} editTodo={this.props.editTodo} />
+        <UpdateTodo singleTodo={this.props.singleTodo} 
+                    editTodo={this.props.editTodo}
+                    history={this.props.history} />
         <Link to='/'>Back</Link>
       </div>
     )

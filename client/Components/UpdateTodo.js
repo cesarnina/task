@@ -22,11 +22,12 @@ export default class UpdateTodo extends Component {
     event.preventDefault()
     const newTodo = {assignee: this.state.assignee, taskName: this.state.taskName}
     this.props.editTodo(this.props.singleTodo.id, newTodo)
+    this.props.history.push('/')
   };
 
 
   render () {
-    console.log('update props: ', this.props)
+    // console.log('update props: ', this.props)
     return (
       <TodoForm state={this.state}
          handleChange={this.handleChange}
