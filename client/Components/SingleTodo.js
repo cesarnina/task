@@ -18,13 +18,13 @@ export class SingleTodo extends Component {
 
   render () {
     // console.log('SingleTodo props: ', this.props)
-    const todo = this.state.todo
+    const { singleTodo, deleteTodo, editTodo, history } = this.props
     return (
       <div id='single-todo'>
-        <Todo todo={this.props.singleTodo} deleteTodo={this.props.deleteTodo} />
-        <UpdateTodo singleTodo={this.props.singleTodo} 
-                    editTodo={this.props.editTodo}
-                    history={this.props.history} />
+        <Todo todo={singleTodo} deleteTodo={deleteTodo} />
+        <UpdateTodo singleTodo={singleTodo} 
+                    editTodo={editTodo}
+                    history={history} />
         <Link to='/'>Back</Link>
       </div>
     )
