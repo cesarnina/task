@@ -5,14 +5,14 @@ const Todo = db.define('todo', {
   taskName: {
     type: Sequelize.STRING,
     allowNull: false,
-    validata: {
+    validate: {
       notEmpty: true
     },
   },
   assignee: {
     type: Sequelize.STRING,
     allowNull: false,
-    validata: {
+    validate: {
       notEmpty: true
     },
   }
