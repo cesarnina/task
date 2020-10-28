@@ -18,15 +18,21 @@ app.use(express.static(path.join(__dirname, '../public')));
 // /api so they are isolated from our GET /* wildcard.
 app.use('/api', require('./api'));
 
-// Send index.html for any other requests
+// Send client to index.html for any other requests
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 });
 
 // error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(err.status || 500).send(err.message || 'Internal server error')
-});
+
+// app.use((req, res, next) => {
+//   console.error("This is an Error 404!");
+//   res.status(404).send("Error 404");
+// });
+
+// app.use((err, req, res, next) => {
+//   console.error('This is an Error 500! \n' + err.message);
+//   res.status(err.status || 500).send(err.message || "Internal server errorrr");
+// });
 
 module.exports = app;

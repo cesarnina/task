@@ -25,7 +25,6 @@ export default class UpdateTodo extends Component {
     this.props.history.push('/')
   };
 
-
   render () {
     // console.log('update props: ', this.props)
     return (
