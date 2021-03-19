@@ -25,7 +25,8 @@ export class SingleTodo extends Component {
         <UpdateTodo singleTodo={singleTodo} 
                     editTodo={editTodo}
                     history={history} />
-        <Link to='/'>Back</Link>
+        <Link to='/'><button>Back</button></Link>
+        {/* <Link to='/'>Back</Link> */}
       </div>
     )
   };

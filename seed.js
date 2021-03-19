@@ -7,7 +7,7 @@ const seed = async () => {
 
     await Todo.create({
       taskName: 'Collect coins',
-      assignee: 'Mario'
+      assignee: 'Luigi'
     })
 
     await Todo.create({
@@ -16,13 +16,13 @@ const seed = async () => {
     })
 
     await Todo.create({
-      taskName: 'Buy dog food',
-      assignee: 'Cody'
+      taskName: 'Collect rings',
+      assignee: 'Sonic'
     })
 
     await Todo.create({
       taskName: 'Take over world',
-      assignee: 'Cody'
+      assignee: 'Pinky and the Brain'
     })
 
     console.log("\x1b[32m%s\x1b[0m",`
@@ -36,7 +36,7 @@ const seed = async () => {
 
   } catch (error) {
       console.error("\x1b[31m",'Oh noes! Something went wrong!','\n')
-      console.error(err, "\x1b[0m")
+      console.error(error, "\x1b[0m")
 
       db.close()
   }
